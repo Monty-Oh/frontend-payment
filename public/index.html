@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>결제 페이지</title>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+<div class="container">
+  <h1>결제하기</h1>
+  <form>
+    <label>
+      <input type="radio" name="payment" value="card"
+             hx-get="/card-options"
+             hx-target="#payment-options"
+             hx-trigger="change"> 카드결제
+    </label>
+
+    <label>
+      <input type="radio" name="payment" value="easy"
+             hx-get="/easy-options"
+             hx-target="#payment-options"
+             hx-trigger="change"> 간편결제
+    </label>
+
+    <div id="payment-options" class="dynamic-options"></div>
+
+    <button type="submit">결제하기</button>
+  </form>
+</div>
+</body>
+</html>
