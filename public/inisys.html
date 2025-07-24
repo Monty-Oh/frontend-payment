@@ -1,0 +1,40 @@
+<div id="content" class="content">
+    <h2>이니시스 결제</h2>
+    <form>
+        <label for="paymentMethod">결제 수단</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="creditCard">신용카드</option>
+            <option value="bankTransfer">계좌이체</option>
+            <option value="kakaoPay">가상계좌</option>
+        </select><br><br>
+
+        <label for="mid">상점 아이디</label>
+        <input type="text" id="mid" name="mid" value="INIpayTest" disabled><br><br>
+
+        <label for="oid">주문 번호</label>
+        <input type="text" id="oid" name="oid" value="DemoTest_1753322964045" disabled><br><br>
+
+        <label for="price">거래 금액</label>
+        <input type="number" id="price" name="price" value="1000" disabled><br><br>
+
+        <label for="timestamp">타임스탬프</label>
+        <input type="text" id="timestamp" name="timestamp" value="1753322964045" disabled><br><br>
+
+        <label for="goodname">상품명</label>
+        <input type="text" id="goodname" name="goodname" value="테스트상품" required><br><br>
+
+        <label for="buyername">구매자 이름</label>
+        <input type="text" id="buyername" name="buyername" value="테스터" required><br><br>
+
+        <label for="buyertel">구매자 전화번호</label>
+        <input type="text" id="buyertel" name="buyertel" value="01012345678" required><br><br>
+
+        <label for="buyereemail">구매자 이메일</label>
+        <input type="email" id="buyereemail" name="buyereemail" value="test@test.com" required><br><br>
+
+        <label for="acceptmethod">추가 옵션</label>
+        <input type="text" id="acceptmethod" name="acceptmethod" value="HPP(1):below1000:va_receipt:centerCd(Y)" required><br><br>
+
+        <button type="submit">결제하기</button>
+    </form>
+</div>

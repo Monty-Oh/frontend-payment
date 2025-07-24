@@ -4,15 +4,15 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index');
 });
 
-router.get('/card-options', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'card-options.html'));
+router.get('/nicepay', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'nicepay.html'));
 });
 
-router.get('/easy-options', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'easy-options.html'));
+router.get('/inisys', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'inisys.html'));
 });
 
 module.exports = router;
