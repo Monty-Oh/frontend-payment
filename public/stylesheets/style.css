@@ -61,7 +61,7 @@ form {
 label {
   font-weight: bold;
   display: inline-block;
-  width: 150px; /* 라벨 고정 너비 */
+  width: 180px; /* 라벨 고정 너비 */
   text-align: left;
   margin-right: 10px;
   white-space: nowrap; /* 라벨 텍스트가 한 줄로 유지되게 설정 */
