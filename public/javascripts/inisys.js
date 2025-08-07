@@ -1,3 +1,5 @@
+import axios from "axios";
+
 const inisys = {
     data: {
         //  테스트용 Sign Key (MID: INIpayTest)
@@ -48,6 +50,11 @@ const inisys = {
                 const hashArray = Array.from(new Uint8Array(hashBuffer));
                 return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
             });
+        },
+        //  inisys 인증 정보 획득
+        _requestInisysPaymentAuthInfo: async function() {
+            const result = await axios.get("http://localhost:8080/payment/v1/inisys/auth/info")
+            console.log(result);
         }
     }
 }
