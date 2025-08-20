@@ -8,7 +8,7 @@ const router = express.Router();
  */
 /*  POST 결제하기 */
 router.get('/inisys/signature', async (req, res) => {
-    const response = await api.get('http://localhost:3000/payment/v1/payments/inisys/signature', req.query);
+    const response = await api.get('http://localhost:3000/payment/v1/payments/inicis/signature', req.query);
     if (response.status !== 200) {
         res.status(response.status).json({message: response.data.message});
     }
@@ -21,8 +21,22 @@ router.get('/inisys/result/close', (req, res) => {
 });
 
 //  이니시스 인증 결과 수신
-router.post('/inisys/result/authentication', (req, res) => {
-    console.log(req);
+router.post('/inisys/result/authentication', async (req, res) => {
+    if (req.body && req.body.resultCode === "0000") {
+        const requestBody = req.body;
+        const requestBodySavePayment = {
+            mid: requestBody.mid,
+            orderNo: requestBody.orderNumber,
+            authorizationToken: requestBody.authToken,
+            idcName: requestBody.idc_name,
+            authorizationUrl: requestBody.authUrl,
+            netCancelUrl: requestBody.netCancelUrl
+        }
+        const response = await api.post('http://localhost:3000/payment/v1/payments/inicis', requestBodySavePayment);
+        console.log(response);
+    }
+
+    console.log(req.body);
 });
 
 module.exports = router;
