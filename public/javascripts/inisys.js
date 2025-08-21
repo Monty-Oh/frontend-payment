@@ -9,6 +9,10 @@ const inisys = {
                 document.getElementById("mKey").value = data.mKey;
                 document.getElementById("mid").value = data.mid;
                 document.getElementById("timestamp").value = data.timestamp;
+                const merchantDataObject = {
+                    price: document.getElementById("price").value
+                };
+                document.getElementById("merchantData").value = this._createMerchantData(merchantDataObject);
                 INIStdPay.pay('paymentForm');
                 INIStdPay.close();
             }
@@ -30,6 +34,11 @@ const inisys = {
             }
 
             return data;
+        },
+        //  결제 단순 전달 데이터 생성용 함수
+        _createMerchantData: function (merchantDataObject) {
+            const merchantDataJson = JSON.stringify(merchantDataObject);
+            return btoa(String.fromCharCode(...new TextEncoder().encode(merchantDataJson)));
         }
     }
 }
