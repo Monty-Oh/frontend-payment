@@ -27,13 +27,25 @@ router.post('/inisys/result/authentication', async (req, res) => {
         const requestBodySavePayment = {
             mid: requestBody.mid,
             orderNo: requestBody.orderNumber,
-            authorizationToken: requestBody.authToken,
-            idcName: requestBody.idc_name,
-            authorizationUrl: requestBody.authUrl,
-            netCancelUrl: requestBody.netCancelUrl
+            authToken: requestBody.authToken,
+            idcCode: requestBody.idc_name,
+            approvalUrl: requestBody.authUrl,
+            cancelUrl: requestBody.netCancelUrl
         }
-        const response = await api.post('http://localhost:3000/payment/v1/payments/inicis', requestBodySavePayment);
-        console.log(response);
+        const responseCreatePayment = await api.post('http://localhost:3000/payment/v1/payments/inicis', requestBodySavePayment);
+        if (responseCreatePayment) {
+            if (responseCreatePayment.status === 200 && responseCreatePayment.data && responseCreatePayment.data.paymentNo) {
+                const responseApprovePayment = await api.post(`http://localhost:3000/payment/v1/payments/inicis/${responseCreatePayment.data.paymentNo}/approval`)
+                debugger
+            } else {
+
+            }
+        }
+        // if (responseCreatePayment) {
+        //
+        // }
+        // const responseApprovePayment = await api.post(`http://localhost:3000/payment/v1/payments/inicis/${responseCreatePayment.paymentNo}/approval`)
+        console.log(responseCreatePayment);
     }
 
     console.log(req.body);
