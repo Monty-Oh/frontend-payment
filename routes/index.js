@@ -15,4 +15,8 @@ router.get('/inisys', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'inisys.html'));
 });
 
+router.get('/history', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'history.html'));
+});
+
 module.exports = router;

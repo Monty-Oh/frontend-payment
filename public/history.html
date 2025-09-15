@@ -1,0 +1,27 @@
+<link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+<script src="/javascripts/history.js"></script>
+<script>
+    const table = new Tabulator("#paymentHistoryTable", {
+        layout: "fitColumns",
+        pagination: "local",
+        paginationSize: 5,
+        columns: [
+            { title: "이름", field: "name" },
+            { title: "나이", field: "age" },
+            { title: "직업", field: "job" }
+        ],
+        data: [
+            { name: "철수", age: 25, job: "개발자" },
+            { name: "영희", age: 30, job: "디자이너" },
+            { name: "민수", age: 27, job: "기획자" },
+            { name: "지수", age: 22, job: "마케터" },
+            { name: "태현", age: 29, job: "PM" },
+            { name: "은지", age: 26, job: "QA" }
+        ]
+    });
+</script>
+<div id="content" class="content">
+    <h2>결제 내역</h2>
+    <div id="paymentHistoryTable"></div>
+</div>

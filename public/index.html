@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>결제 탭</title>
-  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  <script src="/javascripts/index.js"></script>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+    <meta charset="UTF-8">
+    <title>결제 탭</title>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="/javascripts/index.js"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
 
 <h1 class="page-title">결제 테스트 페이지</h1>
 
 <div class="tabs">
-  <div class="tab active" hx-get="/nicepay" hx-target="#content" hx-swap="outerHTML">나이스페이</div>
-  <div class="tab" hx-get="/inisys" hx-target="#content" hx-swap="outerHTML">이니시스</div>
+    <div class="tab active" hx-get="/nicepay" hx-target="#content" hx-swap="outerHTML">나이스페이</div>
+    <div class="tab" hx-get="/inisys" hx-target="#content" hx-swap="outerHTML">이니시스</div>
+    <div class="tab" hx-get="/history" hx-target="#content" hx-swap="outerHTML">결제내역</div>
 </div>
 
 <div id="content" class="content">
-  <p>결제 정보를 선택하세요.</p>
+    <p>결제 정보를 선택하세요.</p>
 </div>
 
 </body>
