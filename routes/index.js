@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require("path");
+const api = require('../common/axios');
 const router = express.Router();
 
 /* GET home page. */
@@ -15,8 +16,13 @@ router.get('/inisys', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'inisys.html'));
 });
 
-router.get('/history', (req, res) => {
+router.get('/record', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'record.html'));
+});
+
+router.get('/record/list', (req, res) => {
+    await api.get('/record/list');
+    debugger;
 });
 
 module.exports = router;

@@ -1,28 +1,29 @@
-if (typeof record === "undefined") {
+if (typeof paymentHistory === "undefined") {
     const record = {
         functions: {
             //  결제 이력 테이블 초기화
             init: function () {
                 const table = new Tabulator("#paymentHistoryTable", {
                     layout: "fitColumns",
-                    pagination: "local",
-                    paginationSize: 5,
+                    ajaxURL: "/record/list", // 외부 API
+                    ajaxConfig: "GET",  // 요청 방식
+                    ajaxResponse:function(url, params, response){
+                        // 서버 응답이 {data:[], last_page:10} 같은 구조라면 매핑 필요
+                        debugger;
+                        return response.data;
+                    },
                     columns: [
-                        {title: "이름", field: "name"},
-                        {title: "나이", field: "age"},
-                        {title: "직업", field: "job"}
+                        {title: "순번", field: "index"},
+                        {title: "주문번호", field: "orderNo"},
+                        {title: "금액", field: "amount"},
+                        {title: "결제상태", field: "paymentStatus"},
+                        {title: "승인일시", field: "approvalDateTime"},
+                        {title: "PG타입", field: "paymentServiceProviderType"},
                     ],
-                    data: [
-                        {name: "철수", age: 25, job: "개발자"},
-                        {name: "영희", age: 30, job: "디자이너"},
-                        {name: "민수", age: 27, job: "기획자"},
-                        {name: "지수", age: 22, job: "마케터"},
-                        {name: "태현", age: 29, job: "PM"},
-                        {name: "은지", age: 26, job: "QA"}
-                    ]
                 });
-            }
+            },
         }
     }
     record.functions.init();
 }
+
