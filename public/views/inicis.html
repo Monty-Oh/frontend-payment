@@ -1,6 +1,5 @@
+<script>inicis.functions.init()</script>
 <div id="content" class="content">
-    <script language="javascript" type="text/javascript" src="https://stdpay.inicis.com/stdjs/INIStdPay.js" charset="UTF-8"></script>
-    <script src="/javascripts/inisys.js"></script>
     <h2>이니시스 결제</h2>
     <form id="paymentForm" name="paymentForm">
 
@@ -33,10 +32,10 @@
         <input type="email" id="buyereemail" name="buyereemail" value="teswt@test.com" required><br><br>
 
         <label for="returnUrl">결과 수신 URL</label>
-        <input type="text" id="returnUrl" name="returnUrl" value="http://localhost:3001/payments/inisys/result/authentication" readonly><br><br>
+        <input type="text" id="returnUrl" name="returnUrl" value="" readonly><br><br>
 
         <label for="closeUrl">결제창 닫기 URL</label>
-        <input type="text" id="closeUrl" name="closeUrl" value="http://localhost:3001/payments/inisys/result/close" readonly><br><br>
+        <input type="text" id="closeUrl" name="closeUrl" value="" readonly><br><br>
 
         <label for="popupUrl">팝업창 URL</label>
         <input type="text" id="popupUrl" name="popupUrl" value="https://manual.inicis.com/pay/demo/popup.php" readonly><br><br>
@@ -53,6 +52,6 @@
         <input type="hidden" id="gopaymethod" name="gopaymethod" value="" />
         <input type="hidden" id="merchantData" name="merchantData" value="" />
 
-        <button type="button" onclick="inisys.functions.inisysPay()">결제하기</button>
+        <button type="button" onclick="inicis.functions.inicisPay()">결제하기</button>
     </form>
 </div>

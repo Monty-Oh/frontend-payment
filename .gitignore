@@ -6,8 +6,8 @@ yarn-error.log*
 pnpm-debug.log*
 
 # dotenv 환경변수
-.env
-.env.*
+#.env.local
+#.env.*
 
 # 로그 파일
 logs/

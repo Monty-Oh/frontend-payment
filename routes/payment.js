@@ -1,29 +1,33 @@
 const express = require('express');
-const path = require("path");
 const api = require('../common/axios');
 const router = express.Router();
 
-/**
- * 결제하기
- */
-/*  POST 결제하기 */
-router.get('/inisys/signature', async (req, res) => {
-    const response = await api.get('http://localhost:3000/payment/v1/payments/inicis/signature', req.query);
+//  결제 내역 조회
+router.get('/', async (req, res) => {
+    const response = await api.get(`${process.env.API_BASE_URL}/payment/v1/payments`, req.query);
+    const returnData = {
+        "last_page": response.data.totalPages,
+        "data": response.data.paymentList.map((payment, index) => ({
+            index: index + 1,
+            ...payment
+        }))
+    }
+    res.json(returnData);
+});
+
+//  이니시스 결제 정보 획득
+router.get('/inicis/signature', async (req, res) => {
+    const response = await api.get(process.env.API_BASE_URL + '/payment/v1/payments/inicis/signature', req.query);
     if (response.status !== 200) {
         res.status(response.status).json({message: response.data.message});
     }
     res.json(response.data);
 });
 
-//  이니시스 결제 취소
-router.get('/inisys/result/close', (req, res) => {
-   res.sendFile(path.join(__dirname, '..', 'public', 'views', 'inisys', 'close.html'));
-});
-
 //  이니시스 인증 결과 수신
-router.post('/inisys/result/authentication', async (req, res) => {
+router.post('/inicis/result/authentication', async (req, res) => {
     //  다음 URL
-    let nextPath = path.join(__dirname, '..', 'public', 'views', 'inisys', 'success.html');
+    let nextPath = "/views/inicis/success.html";
 
     if (req.body && req.body.resultCode === "0000") {
         const requestBody = req.body;
@@ -37,21 +41,21 @@ router.post('/inisys/result/authentication', async (req, res) => {
             networkCancelUrl: requestBody.netCancelUrl,
             price: merchantData.price
         }
-        const responseCreatePayment = await api.post('http://localhost:3000/payment/v1/payments/inicis', requestBodySavePayment);
+        const responseCreatePayment = await api.post(process.env.API_BASE_URL+ '/payment/v1/payments/inicis', requestBodySavePayment);
         if (responseCreatePayment) {
             if (responseCreatePayment.status === 200 && responseCreatePayment.data && responseCreatePayment.data.paymentNo) {
-                const responseApprovalPayment = await api.post(`http://localhost:3000/payment/v1/payments/${responseCreatePayment.data.paymentNo}/approval`);
+                const responseApprovalPayment = await api.post(`${process.env.API_BASE_URL}/payment/v1/payments/${responseCreatePayment.data.paymentNo}/approval`);
                 if (!responseApprovalPayment || responseApprovalPayment.status !== 200) {
-                    nextPath = path.join(__dirname, '..', 'public', 'views', 'inisys', 'error.html');
+                    nextPath = "/views/inicis/error.html";
                 }
             } else {
-                nextPath = path.join(__dirname, '..', 'public', 'views', 'inisys', 'error.html');
+                nextPath = "/views/inicis/error.html";
             }
         }
     } else {
-        nextPath = path.join(__dirname, '..', 'public', 'views', 'inisys', 'error.html');
+        nextPath = "/views/inicis/error.html";
     }
-    res.sendFile(nextPath);
+    res.redirect(nextPath);
 });
 
 const _decodeMerchantData = function (encoded) {

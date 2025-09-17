@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>결제 탭</title>
+
+    <!-- 이니시스 -->
+    <script language="javascript" type="text/javascript" src="https://stdpay.inicis.com/stdjs/INIStdPay.js" charset="UTF-8"></script>
+    <script src="/javascripts/inicis.js"></script>
+
+    <!-- 히스토리 -->
+    <link href="https://unpkg.com/tabulator-tables@6.3.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <script type="text/javascript" src="https://unpkg.com/tabulator-tables@6.3.1/dist/js/tabulator.min.js"></script>
+    <script src="/javascripts/history.js"></script>
+
+    <!-- 기본 스크립트 -->
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-    <script src="/javascripts/index.js"></script>
+    <script src="/index.js"></script>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
@@ -12,14 +23,13 @@
 <h1 class="page-title">결제 테스트 페이지</h1>
 
 <div class="tabs">
-    <div class="tab active" hx-get="/nicepay" hx-target="#content" hx-swap="outerHTML">나이스페이</div>
-    <div class="tab" hx-get="/inisys" hx-target="#content" hx-swap="outerHTML">이니시스</div>
-    <div class="tab" hx-get="/record" hx-target="#content" hx-swap="outerHTML">결제내역</div>
+<!--    <div class="tab" hx-get="/views/nicepay" hx-target="#content" hx-swap="outerHTML">나이스페이</div>-->
+    <div class="tab" hx-get="/views/inicis" hx-target="#content" hx-swap="outerHTML">이니시스</div>
+    <div class="tab" hx-get="/views/history" hx-target="#content" hx-swap="outerHTML">결제내역</div>
 </div>
 
 <div id="content" class="content">
     <p>결제 정보를 선택하세요.</p>
 </div>
-
 </body>
 </html>
