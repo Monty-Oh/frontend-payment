@@ -15,6 +15,14 @@ router.get('/', async (req, res) => {
     res.json(returnData);
 });
 
+//  결제 취소
+router.post('/:paymentNo/cancel', async (req, res) => {
+    const {paymentNo} = req.params;
+    const body = { cancelReason: "WEB 결제 취소"}
+    const response = await api.post(`${process.env.API_BASE_URL}/payment/v1/payments/${paymentNo}/cancel`, body);
+    res.status(response.status).json(response.data);
+});
+
 //  이니시스 결제 정보 획득
 router.get('/inicis/signature', async (req, res) => {
     const response = await api.get(process.env.API_BASE_URL + '/payment/v1/payments/inicis/signature', req.query);
@@ -41,7 +49,7 @@ router.post('/inicis/result/authentication', async (req, res) => {
             networkCancelUrl: requestBody.netCancelUrl,
             price: merchantData.price
         }
-        const responseCreatePayment = await api.post(process.env.API_BASE_URL+ '/payment/v1/payments/inicis', requestBodySavePayment);
+        const responseCreatePayment = await api.post(process.env.API_BASE_URL + '/payment/v1/payments/inicis', requestBodySavePayment);
         if (responseCreatePayment) {
             if (responseCreatePayment.status === 200 && responseCreatePayment.data && responseCreatePayment.data.paymentNo) {
                 const responseApprovalPayment = await api.post(`${process.env.API_BASE_URL}/payment/v1/payments/${responseCreatePayment.data.paymentNo}/approval`);

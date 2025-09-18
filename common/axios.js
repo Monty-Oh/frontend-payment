@@ -28,9 +28,8 @@ const api = {
         console.error(error);
         //  에러의 응답이 존재할 경우
         if (error.response) {
-            const message = error.response.message ? error.response.message : "서버 오류 발생";
-            if (!error.response.message)
-                return {status: error.response.status, data: {message: message}};
+            const message = error.response.headers.has("message") ? this._errorMessageDecoder(error.response.headers.get("message")) : "서버 오류 발생";
+            return {status: error.response.status, data: {message: message}};
         }
         //  요청의 응답이 오지 않은 경우
         else if (error.request) {
@@ -40,6 +39,9 @@ const api = {
         else {
             return {status: 500, message: "요청 도중 에러 발생"};
         }
+    },
+    _errorMessageDecoder: function (encodedMessage) {
+        return decodeURIComponent(encodedMessage.replace(/\+/g, " "));
     }
 }
 
