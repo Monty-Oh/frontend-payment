@@ -22,4 +22,9 @@ router.get('/history', (req, res) => {
     res.redirect('/views/history.html')
 });
 
+//  결제로그 팝업
+router.get('/log', (req, res) => {
+
+})
+
 module.exports = router;
