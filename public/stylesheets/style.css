@@ -27,3 +27,7 @@
     line-height: 1.5;
     border-radius: 0.2rem;
 }
+
+#inicisModalDiv {
+    opacity: 1 !important;
+}
