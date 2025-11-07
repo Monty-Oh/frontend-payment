@@ -1,115 +1,29 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* public/stylesheets/style.css */
+
+/* 추가적인 커스텀 스타일 */
+.nav-tabs .nav-link {
+    cursor: pointer;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  padding: 20px;
+.form-label {
+    font-weight: bold;
 }
 
-.page-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: left;
+.container {
+    max-width: 800px;
 }
 
-.tabs {
-  display: flex;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: 1rem;
+#payment-history-table .tabulator-header {
+    background-color: #f8f9fa;
 }
 
-.tab {
-  padding: 0.5rem 1rem;
-  background-color: #f0f0f0;
-  border: none;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  cursor: pointer;
-  margin-right: 4px;
-  font-weight: 500;
-}
-
-.tab:hover {
-  background-color: #e0e0e0;
-}
-
-.tab.active {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  border-bottom: 1px solid white;
-  font-weight: bold;
-}
-
-
-.content {
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-top: 20px;
-}
-
-form {
-  display: block;
-  margin-top: 20px;
-}
-
-label {
-  font-weight: bold;
-  display: inline-block;
-  width: 180px; /* 라벨 고정 너비 */
-  text-align: left;
-  margin-right: 10px;
-  white-space: nowrap; /* 라벨 텍스트가 한 줄로 유지되게 설정 */
-}
-
-input[type="email"],
-input[type="text"],
-input[type="number"],
-input[type="month"],
-select {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 250px; /* 고정된 입력 필드 너비 */
-  display: inline-block;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #f0f0f0;
-  color: black;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background-color: #e0e0e0;
+#payment-history-table .tabulator-row .tabulator-cell {
+    vertical-align: middle;
 }
 
 .cancel-btn {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #ccc;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.cancel-btn:hover {
-    background-color: #f5f5f5;
-    border-color: #999;
-}
-
-.cancel-btn:active {
-    background-color: #e0e0e0;
-    color: #000;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
 }

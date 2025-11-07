@@ -19,7 +19,6 @@ const inicis = {
                 };
                 document.getElementById("merchantData").value = this._createMerchantData(merchantDataObject);
                 INIStdPay.pay('paymentForm');
-                INIStdPay.close();
             }
         },
         //  inicis 인증 정보 획득
