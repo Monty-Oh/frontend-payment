@@ -1,47 +1,98 @@
-<script>inicis.functions.init()</script>
-<div id="content" class="content">
+<div id="content" class="card card-body mt-3">
+    <script>inicis.functions.init()</script>
     <h2>이니시스 결제</h2>
-    <form id="paymentForm" name="paymentForm">
+    <form id="paymentForm" name="paymentForm" class="mt-4">
 
-        <!-- 필수 파라미터 -->
-        <label for="version">전문 버전</label>
-        <input type="text" id="version" name="version" value="1.0" readonly/><br><br>
+        <div class="row mb-3">
+            <label for="version" class="col-sm-3 col-form-label">전문 버전</label>
+            <div class="col-sm-9">
+                <input type="text" id="version" name="version" class="form-control" value="1.0" readonly/>
+            </div>
+        </div>
 
-        <label for="oid">주문 번호</label>
-        <input type="text" id="oid" name="oid" value="INIpayTest_oid" readonly><br><br>
+        <div class="row mb-3">
+            <label for="oid" class="col-sm-3 col-form-label">주문 번호</label>
+            <div class="col-sm-9">
+                <input type="text" id="oid" name="oid" class="form-control" value="INIpayTest_oid" readonly>
+            </div>
+        </div>
 
-        <label for="price">거래 금액</label>
-        <input type="number" id="price" name="price" value="1004"><br><br>
+        <div class="row mb-3">
+            <label for="price" class="col-sm-3 col-form-label">거래 금액</label>
+            <div class="col-sm-9">
+                <input type="number" id="price" name="price" class="form-control" value="1004">
+            </div>
+        </div>
 
-        <label for="use_chkfake">PC결제 보안강화 사용 여부</label>
-        <input type="text" id="use_chkfake" name="use_chkfake" value="Y" readonly><br><br>
+        <div class="row mb-3">
+            <label for="use_chkfake" class="col-sm-3 col-form-label">PC결제 보안강화 사용 여부</label>
+            <div class="col-sm-9">
+                <input type="text" id="use_chkfake" name="use_chkfake" class="form-control" value="Y" readonly>
+            </div>
+        </div>
 
-        <label for="currency">통화 구분</label>
-        <input type="text" id="currency" name="currency" value="WON" readonly><br><br>
+        <div class="row mb-3">
+            <label for="currency" class="col-sm-3 col-form-label">통화 구분</label>
+            <div class="col-sm-9">
+                <input type="text" id="currency" name="currency" class="form-control" value="WON" readonly>
+            </div>
+        </div>
 
-        <label for="goodname">상품명</label>
-        <input type="text" id="goodname" name="goodname" value="테스트상품" required><br><br>
+        <div class="row mb-3">
+            <label for="goodname" class="col-sm-3 col-form-label">상품명</label>
+            <div class="col-sm-9">
+                <input type="text" id="goodname" name="goodname" class="form-control" value="테스트상품" required>
+            </div>
+        </div>
 
-        <label for="buyername">구매자 이름</label>
-        <input type="text" id="buyername" name="buyername" value="테스터2" required><br><br>
+        <div class="row mb-3">
+            <label for="buyername" class="col-sm-3 col-form-label">구매자 이름</label>
+            <div class="col-sm-9">
+                <input type="text" id="buyername" name="buyername" class="form-control" value="테스터2" required>
+            </div>
+        </div>
 
-        <label for="buyertel">구매자 전화번호</label>
-        <input type="text" id="buyertel" name="buyertel" value="010-1234-5648" required><br><br>
+        <div class="row mb-3">
+            <label for="buyertel" class="col-sm-3 col-form-label">구매자 전화번호</label>
+            <div class="col-sm-9">
+                <input type="text" id="buyertel" name="buyertel" class="form-control" value="010-1234-5648" required>
+            </div>
+        </div>
 
-        <label for="buyereemail">구매자 이메일</label>
-        <input type="email" id="buyereemail" name="buyereemail" value="teswt@test.com" required><br><br>
+        <div class="row mb-3">
+            <label for="buyereemail" class="col-sm-3 col-form-label">구매자 이메일</label>
+            <div class="col-sm-9">
+                <input type="email" id="buyereemail" name="buyereemail" class="form-control" value="teswt@test.com" required>
+            </div>
+        </div>
 
-        <label for="returnUrl">결과 수신 URL</label>
-        <input type="text" id="returnUrl" name="returnUrl" value="" readonly><br><br>
+        <div class="row mb-3">
+            <label for="returnUrl" class="col-sm-3 col-form-label">결과 수신 URL</label>
+            <div class="col-sm-9">
+                <input type="text" id="returnUrl" name="returnUrl" class="form-control" value="" readonly>
+            </div>
+        </div>
 
-        <label for="closeUrl">결제창 닫기 URL</label>
-        <input type="text" id="closeUrl" name="closeUrl" value="" readonly><br><br>
+        <div class="row mb-3">
+            <label for="closeUrl" class="col-sm-3 col-form-label">결제창 닫기 URL</label>
+            <div class="col-sm-9">
+                <input type="text" id="closeUrl" name="closeUrl" class="form-control" value="" readonly>
+            </div>
+        </div>
 
-        <label for="popupUrl">팝업창 URL</label>
-        <input type="text" id="popupUrl" name="popupUrl" value="https://manual.inicis.com/pay/demo/popup.php" readonly><br><br>
+        <div class="row mb-3">
+            <label for="popupUrl" class="col-sm-3 col-form-label">팝업창 URL</label>
+            <div class="col-sm-9">
+                <input type="text" id="popupUrl" name="popupUrl" class="form-control" value="https://manual.inicis.com/pay/demo/popup.php" readonly>
+            </div>
+        </div>
 
-        <label for="acceptmethod">추가 옵션</label>
-        <input type="text" id="acceptmethod" name="acceptmethod" value="HPP(1):below1000:va_receipt:centerCd(Y)" readonly><br><br>
+        <div class="row mb-3">
+            <label for="acceptmethod" class="col-sm-3 col-form-label">추가 옵션</label>
+            <div class="col-sm-9">
+                <input type="text" id="acceptmethod" name="acceptmethod" class="form-control" value="HPP(1):below1000:va_receipt:centerCd(Y)" readonly>
+            </div>
+        </div>
 
         <!-- 필수 파라미터 (숨김) -->
         <input type="hidden" id="mid" name="mid" value="" />
@@ -52,6 +103,8 @@
         <input type="hidden" id="gopaymethod" name="gopaymethod" value="" />
         <input type="hidden" id="merchantData" name="merchantData" value="" />
 
-        <button type="button" onclick="inicis.functions.inicisPay()">결제하기</button>
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary" onclick="inicis.functions.inicisPay()">결제하기</button>
+        </div>
     </form>
 </div>

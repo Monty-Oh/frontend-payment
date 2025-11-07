@@ -25,7 +25,6 @@ const api = {
         }
     },
     _errorHandler: function (error) {
-        console.error(error);
         //  에러의 응답이 존재할 경우
         if (error.response) {
             const message = error.response.headers.has("message") ? this._errorMessageDecoder(error.response.headers.get("message")) : "서버 오류 발생";
