@@ -13,8 +13,8 @@ RUN npm install
 # 나머지 소스 코드를 복사합니다.
 COPY . .
 
-# 8080 포트를 외부에 노출합니다.
-EXPOSE 8080
+# 8081 포트를 외부에 노출합니다.
+EXPOSE 8081
 
 # npm start 명령어로 애플리케이션을 실행합니다.
 CMD [ "npm", "start" ]
