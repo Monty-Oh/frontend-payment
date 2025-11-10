@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8081
 
 # npm start 명령어로 애플리케이션을 실행합니다.
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "prod" ]
