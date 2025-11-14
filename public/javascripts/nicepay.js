@@ -2,7 +2,7 @@ const nicepay = {
     functions: {
         //  나이스페이 페이지 초기화
         init: function () {
-            document.getElementById('ReturnURL').value = window.location.origin + "/payments/nicepay/result/authentication"
+            document.getElementById('ReturnURL').value = window.location.origin + "/payments/nicepay/result/approval"
         },
 
         //  나이스페이 결제
@@ -48,7 +48,7 @@ const nicepay = {
 
 //  나이스페이 쪽에서 직접 호출하는 스크립트
 nicepaySubmit = async function () {
-    await fetch('payments/nicepay/result/authentication', {
+    const response = await fetch('payments/nicepay/result/authentication', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -63,9 +63,12 @@ nicepaySubmit = async function () {
             reqReserved: document.getElementsByName('ReqReserved')[0].value
         })
     });
+
+    const data = await response.json();
+    window.location.href = data.redirectUrl;   // 직접 이동
 }
 
 //  나이스페이 쪽에서 직접 호출하는 스크립트
-function nicepayClose(){
+nicepayClose = async function () {
     alert("결제가 취소 되었습니다");
 }
