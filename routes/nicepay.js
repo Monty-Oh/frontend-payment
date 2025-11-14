@@ -44,8 +44,15 @@ router.post('/result/authentication', async (req, res) => {
     } else {
         nextPath = "/views/nicepay/error.html";
     }
-    res.redirect(nextPath);
+    res.json({ redirectUrl: nextPath });
 });
+
+router.post('/result/approval', async (req, res) => {
+    debugger;
+})
+
+//  나이스페이 결제 결과 수신
+
 
 const _decodeMerchantData = function (encoded) {
     // Base64 → 문자열 (중간에 UTF-8 디코딩 필요)
