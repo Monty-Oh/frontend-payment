@@ -5,6 +5,13 @@
     cursor: pointer;
 }
 
+.nav-item .active {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid white;
+    font-weight: bold;
+}
+
 .form-label {
     font-weight: bold;
 }

@@ -8,6 +8,8 @@ dotenv.config();
 
 const viewRouter = require('./routes/view');
 const paymentRouter = require('./routes/payment');
+const inicisRouter = require('./routes/inicis');
+const nicepayRouter = require('./routes/nicepay');
 
 const app = express();
 
@@ -21,7 +23,9 @@ app.get('/', (req, res) => {
     res.render('index');
 })
 
-app.use('/views', viewRouter)
+app.use('/views', viewRouter);
 app.use('/payments', paymentRouter);
+app.use('/payments/inicis', inicisRouter);
+app.use('/payments/nicepay', nicepayRouter)
 
 module.exports = app;
